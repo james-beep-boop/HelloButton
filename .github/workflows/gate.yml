@@ -1,0 +1,22 @@
+name: gate
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Tests (only once the project has a package.json)
+        run: |
+          if [ -f package.json ]; then
+            npm ci
+            npx playwright install --with-deps chromium
+            npm test
+          else
+            echo "No package.json yet; nothing to test."
+          fi
