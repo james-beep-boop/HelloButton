@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello World Button</title>
+    <style>
+      body {
+        display: grid;
+        place-items: center;
+        box-sizing: border-box;
+        min-height: 100vh;
+        min-height: 100dvh;
+        margin: 0;
+        padding: 1rem;
+        background:
+          radial-gradient(ellipse at 15% 90%, #ff96cb, transparent 55%),
+          radial-gradient(ellipse at 90% 12%, #8ee9ff, transparent 50%),
+          linear-gradient(135deg, #f7d3ff, #c9b5ff 55%, #ffe8a0);
+      }
+
+      button {
+        min-inline-size: min(13rem, 100%);
+        min-block-size: 4.5rem;
+        padding: 0.75rem 1.25rem;
+        border: 3px solid #251742;
+        border-radius: 999px;
+        background: #ffed67;
+        box-shadow: 0 0.35rem 0 #251742;
+        color: #251742;
+        cursor: pointer;
+        font: 800 clamp(1.25rem, 4vw, 1.75rem)/1.2 system-ui, sans-serif;
+      }
+
+      button:hover {
+        background: #fff28e;
+      }
+
+      button:active {
+        background: #ffd76b;
+      }
+
+      button:focus-visible {
+        outline: 4px solid #251742;
+        outline-offset: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button">Click me</button>
+    <script>
+      const button = document.querySelector('button');
+
+      button.addEventListener('click', () => {
+        button.textContent = button.textContent === 'Click me' ? 'Hello World' : 'Click me';
+      });
+    </script>
+  </body>
+</html>
